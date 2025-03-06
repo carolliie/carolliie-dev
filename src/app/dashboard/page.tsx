@@ -17,7 +17,7 @@ export default function Home() {
           <CarouselBlock />
         </div>
       </div>
-      <div className="min-h-[120vh] max-h-fit flex-1 rounded-xl bg-muted/50 md:min-h-min">
+      <div className="max-h-fit flex-1 rounded-xl bg-muted/50 md:min-h-min">
         <ChartBarHorizontal />
       </div>
     </div>

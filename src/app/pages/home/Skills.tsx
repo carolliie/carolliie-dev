@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Skills() {
     return (
-        <div className="flex flex-row justify-between items-center px-32">
+        <div className="flex container mx-auto flex-row justify-between items-center px-24">
             <Image src="/html.svg" alt="html icone" width={56} height={56}/>
             <Image src="/css.svg" alt="css icone" width={56} height={56}/>
             <Image src="/js.svg" alt="js icone" width={56} height={56}/>

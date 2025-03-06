@@ -158,12 +158,12 @@ export const columns: ColumnDef<Projects>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Ações</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(`/dashboard/projetos/${project.slug}`)}
+              onClick={() => navigator.clipboard.writeText(`/projects/${project.slug}`)}
             >
               Copiar URL do projeto
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Ver detalhes</DropdownMenuItem>
+            <DropdownMenuItem><Link href={`/projects/${project.slug}`}>Ver detalhes</Link></DropdownMenuItem>
             <DropdownMenuItem><Link href={`/dashboard/projetos/editar-projeto/${project.slug}`}>Editar projeto</Link></DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => {

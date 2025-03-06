@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from "next/link";
-import { ArrowBigRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const navigation = [
     { name: 'Sobre', href: '#sobre' },
@@ -39,7 +39,7 @@ export default function Header() {
 
 
     return (
-        <header className={`sticky inset-x-0 top-0 z-50 px-24 transition-opacity duration-200 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <header className={`fixed inset-x-0 top-0 z-50 px-24 transition-opacity duration-200 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1">
                     <a href="/" className="-m-1.5 p-1.5">
@@ -73,8 +73,8 @@ export default function Header() {
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" className="flex justify-between text-sm/6 font-semibold text-black bg-[#FFA0D4] p-1 px-6 rounded-3xl hover:bg-[#c279a1]">
-                        Contato <ArrowBigRight color="black" />
+                    <a href="#contato" className="flex justify-between items-center text-sm/6 font-semibold text-black bg-[#FFA0D4] p-1 px-6 rounded-3xl hover:bg-[#c279a1]">
+                        Contato <ArrowRight color="black" size={18}/>
                     </a>
                 </div>
             </nav>

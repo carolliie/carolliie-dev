@@ -55,7 +55,7 @@ export function CarouselBlock() {
                       {new Date(post.date).toLocaleDateString("pt-BR")}
                     </p>
                     <div className="flex justify-end z-10 w-full items-center">
-                      <a href="/dashboard/posts" className="py-1 px-2 text-sm text-white hover:bg-white hover:bg-opacity-5 transition duration-300 ease-in-out flex justify-between items-center border border-white border-opacity-50 rounded-lg">Ver publicação <BookHeart width={14} className="ml-1"/></a>
+                      <a href={`/blog/${post.slug}`} className="py-1 px-2 text-sm text-white hover:bg-white hover:bg-opacity-5 transition duration-300 ease-in-out flex justify-between items-center border border-white border-opacity-50 rounded-lg">Ver publicação <BookHeart width={14} className="ml-1"/></a>
                     </div>
                   </CardContent>
                 </Card>

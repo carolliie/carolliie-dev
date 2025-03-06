@@ -43,7 +43,7 @@ export default function PostsSection({ excludeSlug }: { excludeSlug?:string }) {
     return (
         <div className="flex flex-col justify-center items-center px-12 py-2">
             {posts.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-12 justify-center">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 py-12 justify-center">
                     {posts.map((post) => (
                         <Card
                             key={post.id}

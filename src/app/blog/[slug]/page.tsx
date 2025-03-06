@@ -52,11 +52,11 @@ export default function PostPage() {
     return (
         <div>
             <div
-                className="bg-center bg-cover h-[80vh] flex items-start justify-end text-white text-center p-[60px] flex-col rounded-br-[60px] rounded-bl-[60px] before:absolute before:top-0 before:left-0 before:w-full before:h-[80vh] before:rounded-br-[60px] before:rounded-bl-[60px] before:bg-gradient-to-t before:from-black/60 before:via-black/30 before:to-transparent"
+                className="bg-center bg-cover bg-no-repeat h-[80vh] flex items-start justify-end text-white text-center p-[60px] flex-col rounded-br-[60px] rounded-bl-[60px] before:absolute before:top-0 before:left-0 before:w-full before:h-[80vh] before:rounded-br-[60px] before:rounded-bl-[60px] before:bg-gradient-to-t before:from-black/60 before:via-black/30 before:to-transparent"
                 style={{ backgroundImage: `url(${post.img})` }}
             >
                 <div className="z-20">
-                    <h1 className="text-4xl font-semibold">{post.name}</h1>
+                    <h1 className="text-4xl font-semibold text-start">{post.name}</h1>
 
                     <div className="flex items-center gap-10 text-center mt-4">
                         <span className="text-base text-white">{format(new Date(post.date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>

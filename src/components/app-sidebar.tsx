@@ -114,7 +114,7 @@ const data = {
   projects: [
     {
       title: "Projetos",
-      url: "/dashboard",
+      url: "/dashboard/projetos",
       icon: ComputerIcon,
       items: [
         {

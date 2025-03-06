@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ img, name, content, slug, project
             }}
         >
             <div>
-                <div className="relative w-[470px] h-[470px] overflow-hidden rounded-lg">
+                <div className="relative w-[350px] h-[350px] lg:w-[470px] lg:h-[470px] overflow-hidden rounded-lg">
                     <img
                         src={img}
                         alt="Imagem do post"

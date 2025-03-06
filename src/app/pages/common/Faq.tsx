@@ -12,8 +12,8 @@ export default function Faq() {
     ]
 
     return (
-        <div className="flex flex-row justify-between relative px-32 pb-32" id="faq">
-            <div className="flex flex-col gap-y-4 sticky top-0 w-[450px]">
+        <div className="flex container mx-auto flex-col lg:flex-row justify-between relative px-12 pb-20 lg:px-24 lg:pb-32" id="faq">
+            <div className="flex flex-col gap-y-4 mb-10 lg:mb-0 sticky top-0 w-fit lg:w-[450px]">
                 <h1 className="text-5xl font-semibold">FAQ</h1>
                 <p className="text-lg font-normal">Dúvidas frequentes recebidas no <span className="text-[#FFA0D4] font-general">Instagram</span> e <span className="text-[#F2FFAB] font-general">LinkedIn</span>.</p>
 
@@ -32,7 +32,7 @@ export default function Faq() {
                 </a>
             </div>
 
-            <div className="flex flex-col justify-center items-start gap-y-6 w-[450px]">
+            <div className="flex flex-col justify-center items-start gap-y-6 w-fit lg:w-[450px]">
                 {faqAnswers.map(((item, index) => (
                     <Accordion
                         key={index}

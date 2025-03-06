@@ -40,7 +40,7 @@ export default function ProjectPage() {
                 style={{ backgroundImage: `url(${project.img})` }}
             >
                 <div className="z-20">
-                    <h1 className="text-4xl font-semibold">{project.name}</h1>
+                    <h1 className="text-start text-4xl font-semibold">{project.name}</h1>
 
                     <div className="flex items-center gap-10 text-center mt-4">
                         <span className="text-base text-white">{format(new Date(project.date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>

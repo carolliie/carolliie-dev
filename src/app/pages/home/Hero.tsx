@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="relative w-full h-screen">
+    <div className="container mx-auto relative w-full h-[85vh]">
       <div className="absolute justify-center inset-0 w-max h-full z-0 container-estrelas">
         {[...Array(50)].map((_, index) => {
           const uniqueIndex = Math.floor(Math.random() * 50) + 5;
@@ -40,12 +40,12 @@ export default function Hero() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                href="#"
+                href="#projetos"
                 className="rounded-md bg-[#FFA0D4] px-6 py-2 text-sm font-medium text-white shadow-xs hover:bg-[#d685b2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Ver mais
               </a>
-              <a href="#" className="text-sm font-medium text-[#F2FFAB]">
+              <a href="#contato" className="text-sm font-medium text-[#F2FFAB]">
                 Fale comigo <span aria-hidden="true">→</span>
               </a>
             </div>
