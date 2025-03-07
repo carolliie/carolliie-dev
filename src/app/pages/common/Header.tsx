@@ -52,7 +52,7 @@ export default function Header() {
                         />
                     </a>
                 </div>
-                <div className="flex lg:hidden">
+                <div className="flex w-fit lg:hidden">
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)}
@@ -115,7 +115,7 @@ export default function Header() {
                             </div>
                             <div className="py-6">
                                 <a
-                                    href="#"
+                                    href="#contato"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:text-[#FFA0D4]"
                                 >
                                     Contato

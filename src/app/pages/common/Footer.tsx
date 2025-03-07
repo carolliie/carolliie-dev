@@ -2,14 +2,15 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <div className="flex flex-col justify-center items-center px-12 pb-12 gap-y-16">
+        <div className="flex flex-col justify-center items-center px-20 lg:px-12 pb-12 gap-y-16">
             <Image src="/carolliie-dev.svg" alt="carolie logo" width={300} height={300} />
 
-            <div className="flex justify-evenly text-white font-normal gap-x-40">
-                <a href="" className="hover:text-[#FFA0D4]">Início</a>
-                <a href="" className="hover:text-[#FFA0D4]">Sobre</a>
-                <a href="" className="hover:text-[#FFA0D4]">Blog</a>
-                <a href="" className="hover:text-[#FFA0D4]">FAQ</a>
+            <div className="flex flex-wrap justify-evenly text-white font-normal gap-8 lg:gap-x-40">
+                <a href="/" className="hover:text-[#FFA0D4]">Início</a>
+                <a href="#sobre" className="hover:text-[#FFA0D4]">Sobre</a>
+                <a href="/blog" className="hover:text-[#FFA0D4]">Blog</a>
+                <a href="/projetos" className="hover:text-[#FFA0D4]">Projetos</a>
+                <a href="#faq" className="hover:text-[#FFA0D4]">FAQ</a>
             </div>
 
             <div className="flex justify-evenly gap-x-20 gap-y-20" id="redes-sociais">

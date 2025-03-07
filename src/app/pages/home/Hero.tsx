@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="relative isolate px-6 pt-14 lg:px-8 z-10">
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          className="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl"
         >
           <div
             style={{
@@ -28,13 +28,13 @@ export default function Hero() {
           />
         </div>
 
-        <div className="mx-auto max-w-2xl xl:py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto max-w-2xl py-40 xl:py-52! lg:py-56">
           <div className="text-center">
-            <h1 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+            <h1 className="text-[40px] lg:text-5xl font-semibold tracking-tight text-white sm:text-7xl">
               Olá, eu sou<br />
               <span className="pencerio">Ana Caroline!</span>
             </h1>
-            <p className="mt-8 text-lg text-white sm:text-xl">
+            <p className="mt-8 text-base lg:text-lg text-white">
               Desenvolvedora de software apaixonada por criar{" "}
               <strong>soluções inovadoras e funcionais</strong> para a web.
             </p>
