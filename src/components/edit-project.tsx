@@ -18,6 +18,7 @@ import { toast } from "@/hooks/use-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Editor from "@/app/pages/common/Editor";
+import Image from "next/image";
 
 const FormSchema = z.object({
     name: z.string().min(2, {
@@ -43,19 +44,30 @@ const FormSchema = z.object({
     }),
 });
 
-export function EditProjectForm({ project }: { project?: any }) {
+interface Project {
+    name: string;
+    content: string;
+    tags: string[];
+    img: string;
+    projectColor: string;
+    tagColor: string;
+    tagTextColor: string;
+    slug: string;
+}
+
+export function EditProjectForm({ project }: { project?: Project }) {
     const router = useRouter();
 
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
             name: project?.name || "",
-            content: project.content || "",
-            tags: Array.isArray(project?.tags) ? project.tags : [],
-            img: project.img || "",
-            projectColor: project.projectColor || "#000000",
-            tagColor: project.tagColor || "#000000",
-            tagTextColor: project.tagTextColor || "#000000",
+            content: project?.content || "",
+            tags: Array.isArray(project?.tags) ? project?.tags : [],
+            img: project?.img || "",
+            projectColor: project?.projectColor || "#000000",
+            tagColor: project?.tagColor || "#000000",
+            tagTextColor: project?.tagTextColor || "#000000",
         },
     });
 
@@ -74,7 +86,7 @@ export function EditProjectForm({ project }: { project?: any }) {
             const token = localStorage.getItem("authToken");
 
             await axios.patch(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/projects/edit/${project.slug}`,
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/projects/edit/${project?.slug}`,
                 updatedproject,
                 {
                     headers:
@@ -89,7 +101,7 @@ export function EditProjectForm({ project }: { project?: any }) {
                 title: "✅ Projeto atualizado com sucesso!",
                 description: (
                     <div className="flex items-center gap-4 p-3 bg-gray-900 rounded-lg">
-                        <img
+                        <Image
                             src={values.img}
                             alt="Preview do projeto"
                             width={80}
@@ -110,6 +122,7 @@ export function EditProjectForm({ project }: { project?: any }) {
 
             router.push("/dashboard/projetos")
         } catch (error) {
+            console.error("Erro ao atualizar projeto:", error);
             toast({
                 title: "❌ Erro ao atualizar projeto.",
                 description: "Tente novamente mais tarde.",
@@ -216,7 +229,7 @@ export function EditProjectForm({ project }: { project?: any }) {
                             </FormControl>
                             {field.value && (
                                 <div className="mt-4">
-                                    <img
+                                    <Image
                                         src={field.value}
                                         width={200}
                                         height={200}

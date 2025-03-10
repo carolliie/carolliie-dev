@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import axios from "axios"
 import {
   ColumnDef,
@@ -36,7 +37,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { toast, useToast } from "@/hooks/use-toast"
+import { toast } from "@/hooks/use-toast"
 import router from "next/router"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
@@ -85,7 +86,8 @@ export const columns: ColumnDef<Projects>[] = [
     header: "Tags",
     cell: ({ row }) => {
       const tags = row.getValue("tags") as string[];
-      return <div>{Array.isArray(tags) ? tags.join(", ") : "Sem tags"}</div>},
+      return <div>{Array.isArray(tags) ? tags.join(", ") : "Sem tags"}</div>
+    },
   },
   {
     accessorKey: "date",
@@ -105,9 +107,11 @@ export const columns: ColumnDef<Projects>[] = [
       const imgUrl = row.getValue("img") as string;
       return (
         <div className="flex items-center justify-start">
-          <img
+          <Image
             src={imgUrl}
             alt="project image"
+            width={64}
+            height={64}
             className="w-16 h-16 object-cover rounded-md"
           />
         </div>
@@ -119,9 +123,8 @@ export const columns: ColumnDef<Projects>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const project = row.original;
-      const { dismiss } = useToast();
 
-      async function deleteProject(toastId: string) {
+      const handleDeleteProject = async () => {
         const token = localStorage.getItem("authToken");
         try {
           await axios.delete(
@@ -137,14 +140,17 @@ export const columns: ColumnDef<Projects>[] = [
             title: "✅ Projeto excluído com sucesso!",
             description: `O project "${project.name}" foi removido.`,
           });
-          dismiss(toastId);
           router.push("/dashboard/projects")
-        } catch (err) {
+        } catch {
           toast({
             title: "❌ Erro ao deletar projeto.",
             description: "Tente novamente mais tarde.",
           });
         }
+      }
+
+      function dismiss(): void {
+        throw new Error("Function not implemented.")
       }
 
       return (
@@ -167,12 +173,12 @@ export const columns: ColumnDef<Projects>[] = [
             <DropdownMenuItem><Link href={`/dashboard/projetos/editar-projeto/${project.slug}`}>Editar projeto</Link></DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => {
-                const { id: toastId } = toast({
+                toast({
                   title: "❌ Você deseja excluir este projeto?",
                   description: (
                     <div className="flex flex-col">
                       <div className="flex items-center gap-4 p-3 bg-gray-900 rounded-lg">
-                        <img
+                        <Image
                           src={project.img}
                           alt="Preview do project"
                           width={80}
@@ -194,14 +200,14 @@ export const columns: ColumnDef<Projects>[] = [
                         <Button
                           className="bg-red-600 text-white hover:text-black"
                           onClick={() => {
-                            deleteProject(toastId);
+                            handleDeleteProject();
                           }}
                         >
                           Sim, desejo excluir
                         </Button>
                         <Button
                           className="bg-blue-900 text-white hover:text-black"
-                          onClick={() => dismiss(toastId)}
+                          onClick={() => dismiss()}
                         >
                           Não, prefiro cancelar
                         </Button>

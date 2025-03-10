@@ -7,14 +7,30 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ptBR } from "date-fns/locale";
 import { format } from "date-fns";
 import PostsSection from "@/app/pages/common/PostsSection";
+import Image from "next/image";
 
 export default function PostPage() {
+
+    interface Post {
+        name: string;
+        img: string;
+        date: string;
+        content: string;
+        tags: string[];
+        tagTextColor: string;
+    }
+
+    interface Author {
+        username: string;
+        profilePicture?: string;
+        bio?: string;
+    }
+
     const params = useParams();
     const slug = params?.slug as string;
-    const [post, setPost] = useState<any>(null);
-    const [author, setAuthor] = useState<any>(null);
+    const [post, setPost] = useState<Post | null>(null);
+    const [author, setAuthor] = useState<Author | null>(null);
     const [loading, setLoading] = useState(true);
-    const [loadingAuthor, setLoadingAuthor] = useState(true);
     const [error, setError] = useState(false);
 
     useEffect(() => {
@@ -23,7 +39,7 @@ export default function PostPage() {
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/${slug}`);
                 setPost(response.data);
             } catch (err) {
-                setError(true);
+                console.error(err);
             } finally {
                 setLoading(false);
             }
@@ -37,9 +53,8 @@ export default function PostPage() {
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/ana-caroline-vieira`);
                 setAuthor(response.data);
             } catch (err) {
+                console.error(err);
                 setError(true);
-            } finally {
-                setLoadingAuthor(false);
             }
         }
         fetchAuthor();
@@ -77,10 +92,12 @@ export default function PostPage() {
                 {author ? (
                     <div className="mt-10 flex items-center gap-4 border-t pt-6 border-gray-400">
                         {author.profilePicture && (
-                            <img
+                            <Image
                                 src={author.profilePicture}
                                 alt="Foto do autor"
-                                className="w-14 h-14 rounded-full"
+                                width={56}
+                                height={56}
+                                className="rounded-full"
                             />
                         )}
                         <div>
@@ -100,7 +117,7 @@ export default function PostPage() {
                         insights
                     </span>
                 </h1>
-                <PostsSection excludeSlug={slug}/>
+                <PostsSection excludeSlug={slug} />
             </div>
         </div>
     );

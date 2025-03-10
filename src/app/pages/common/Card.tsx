@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 
 type PostProps = {
     img: string;
@@ -15,9 +16,11 @@ const Card: React.FC<PostProps> = ({ img, name, content, slug, tagColor, tagText
         <div className="flex flex-col flex-wrap justify-between gap-y-5 rounded-lg 2xl:w-80 xl:w-[245px] lg:w-[245px] sm:w-[245px] xs:w-[250px] text-white">
             <div>
                 <div className="relative 2xl:w-72 2xl:h-72 xl:w-[245px] xl:h-[245px] overflow-hidden rounded-lg">
-                    <img
+                    <Image
                         src={img}
                         alt="Imagem do post"
+                        width={288}
+                        height={288}
                         className="w-full h-full object-cover"
                     />
                 </div>
@@ -47,7 +50,7 @@ const Card: React.FC<PostProps> = ({ img, name, content, slug, tagColor, tagText
             </div>
 
             <a className="flex justify-end" href={`blog/${slug}`}>
-                <img src="/arrow-button.svg" alt="Post button" className="w-10 h-10" />
+                <Image src="/arrow-button.svg" alt="Post button" width={40} height={40} />
             </a>
         </div>
     )

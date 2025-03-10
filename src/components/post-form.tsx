@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 import axios from "axios";
 import Editor from "@/app/pages/common/Editor";
-import { useEffect } from "react";
+import Image from "next/image";
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -65,7 +65,7 @@ export function PostForm() {
 
       const token = localStorage.getItem("authToken");
 
-      const response = await axios.post(
+      await axios.post(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
         {
           name: values.name,
@@ -87,7 +87,7 @@ export function PostForm() {
         title: "✅ Post publicado com sucesso!",
         description: (
           <div className="flex items-center gap-4 p-3 bg-gray-900 rounded-lg">
-            <img
+            <Image
               src={values.img}
               alt="Preview do post"
               width={80}
@@ -108,6 +108,7 @@ export function PostForm() {
 
       form.reset();
     } catch (error) {
+      console.error(error);
       toast({
         title: "❌ Erro ao publicar post.",
         description: "Tente novamente mais tarde.",
@@ -214,7 +215,7 @@ export function PostForm() {
               </FormControl>
               {field.value && (
                 <div className="mt-4">
-                  <img
+                  <Image
                     src={field.value}
                     width={200}
                     height={200}

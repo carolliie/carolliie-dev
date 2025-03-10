@@ -36,10 +36,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { toast, useToast } from "@/hooks/use-toast"
+import { toast } from "@/hooks/use-toast"
 import router from "next/router"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
+import Image from "next/image"
 
 export type Posts = {
   id: string
@@ -105,9 +106,11 @@ export const columns: ColumnDef<Posts>[] = [
       const imgUrl = row.getValue("img") as string;
       return (
         <div className="flex items-center justify-start">
-          <img
+          <Image
             src={imgUrl}
             alt="Post image"
+            width={64}
+            height={64}
             className="w-16 h-16 object-cover rounded-md"
           />
         </div>
@@ -119,13 +122,12 @@ export const columns: ColumnDef<Posts>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const post = row.original;
-      const { dismiss } = useToast();
 
-      async function deletePost(toastId: string) {
+      const handleDeletePost = async () => {
         const token = localStorage.getItem("authToken");
         try {
           await axios.delete(
-            `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/delete/${post.id}`,
+            `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/projects/delete/${post.id}`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -134,17 +136,20 @@ export const columns: ColumnDef<Posts>[] = [
             }
           );
           toast({
-            title: "✅ Post excluído com sucesso!",
+            title: "✅ Projeto excluído com sucesso!",
             description: `O post "${post.name}" foi removido.`,
           });
-          dismiss(toastId);
           router.push("/dashboard/posts")
-        } catch (err) {
+        } catch {
           toast({
-            title: "❌ Erro ao deletar publicação.",
+            title: "❌ Erro ao deletar projeto.",
             description: "Tente novamente mais tarde.",
           });
         }
+      }
+
+      function dismiss(): void {
+        throw new Error("Function not implemented.")
       }
 
       return (
@@ -158,21 +163,21 @@ export const columns: ColumnDef<Posts>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Ações</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(`/blog/${post.slug}`)}
+              onClick={() => navigator.clipboard.writeText(`/blog/${post?.slug}`)}
             >
               Copiar URL do Post
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem><Link href={`/blog/${post.slug}`}>Ver detalhes</Link></DropdownMenuItem>
-            <DropdownMenuItem><Link href={`/dashboard/posts/editar-post/${post.slug}`}>Editar Post</Link></DropdownMenuItem>
+            <DropdownMenuItem><Link href={`/blog/${post?.slug}`}>Ver detalhes</Link></DropdownMenuItem>
+            <DropdownMenuItem><Link href={`/dashboard/posts/editar-post/${post?.slug}`}>Editar Post</Link></DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => {
-                const { id: toastId } = toast({
-                  title: "❌ Você deseja excluir este post?",
+                toast({
+                  title: "❌ Você deseja excluir este projeto?",
                   description: (
                     <div className="flex flex-col">
                       <div className="flex items-center gap-4 p-3 bg-gray-900 rounded-lg">
-                        <img
+                        <Image
                           src={post.img}
                           alt="Preview do post"
                           width={80}
@@ -194,14 +199,14 @@ export const columns: ColumnDef<Posts>[] = [
                         <Button
                           className="bg-red-600 text-white hover:text-black"
                           onClick={() => {
-                            deletePost(toastId);
+                            handleDeletePost();
                           }}
                         >
                           Sim, desejo excluir
                         </Button>
                         <Button
                           className="bg-blue-900 text-white hover:text-black"
-                          onClick={() => dismiss(toastId)}
+                          onClick={() => dismiss()}
                         >
                           Não, prefiro cancelar
                         </Button>
@@ -212,7 +217,7 @@ export const columns: ColumnDef<Posts>[] = [
                 });
               }}
             >
-              Excluir Post <TrashIcon color="red" />
+              Excluir post <TrashIcon color="red" />
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu >

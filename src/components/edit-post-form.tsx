@@ -19,6 +19,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Editor from "@/app/pages/common/Editor";
+import Image from "next/image";
 
 const FormSchema = z.object({
     name: z.string().min(2, {
@@ -41,7 +42,17 @@ const FormSchema = z.object({
     }),
 });
 
-export function EditPostForm({ post }: { post?: any }) {
+interface Post {
+    name: string;
+    content: string;
+    tags: string[];
+    img: string;
+    tagColor: string;
+    tagTextColor: string;
+    slug: string;
+}
+
+export function EditPostForm({ post }: { post?: Post }) {
     const router = useRouter();
 
     const form = useForm<z.infer<typeof FormSchema>>({
@@ -49,10 +60,10 @@ export function EditPostForm({ post }: { post?: any }) {
         defaultValues: {
             name: post?.name || "",
             content: post?.content || "",
-            tags: post?.tags || "",
+            tags: post?.tags || [],
             img: post?.img || "",
             tagColor: post?.tagColor || "",
-            tagTextColor: post.tagTextColor || "#000000",
+            tagTextColor: post?.tagTextColor || "#000000",
         },
     });
 
@@ -76,7 +87,7 @@ export function EditPostForm({ post }: { post?: any }) {
             const token = localStorage.getItem("authToken");
 
             await axios.patch(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/edit/${post.slug}`,
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/edit/${post?.slug}`,
                 updatedPost,
                 {
                     headers:
@@ -91,7 +102,7 @@ export function EditPostForm({ post }: { post?: any }) {
                 title: "✅ Post atualizado com sucesso!",
                 description: (
                     <div className="flex items-center gap-4 p-3 bg-gray-900 rounded-lg">
-                        <img
+                        <Image
                             src={values.img}
                             alt="Preview do post"
                             width={80}
@@ -112,6 +123,7 @@ export function EditPostForm({ post }: { post?: any }) {
 
             router.push("/dashboard/posts")
         } catch (error) {
+            console.error(error);
             toast({
                 title: "❌ Erro ao atualizar post.",
                 description: "Tente novamente mais tarde.",
@@ -218,7 +230,7 @@ export function EditPostForm({ post }: { post?: any }) {
                             </FormControl>
                             {field.value && (
                                 <div className="mt-4">
-                                    <img
+                                    <Image
                                         src={field.value}
                                         width={200}
                                         height={200}

@@ -14,10 +14,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import axios from "axios";
 import Editor from "@/app/pages/common/Editor";
+import Image from "next/image";
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -70,7 +70,7 @@ export function ProjectForm() {
 
       const token = localStorage.getItem("authToken");
 
-      const response = await axios.post(
+      await axios.post(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/projects`,
         {
           name: values.name,
@@ -93,7 +93,7 @@ export function ProjectForm() {
         title: "✅ Projeto publicado com sucesso!",
         description: (
           <div className="flex items-center gap-4 p-3 bg-gray-900 rounded-lg">
-            <img
+            <Image
               src={values.img}
               alt="Preview do projeto"
               width={80}
@@ -114,6 +114,7 @@ export function ProjectForm() {
 
       form.reset();
     } catch (error) {
+      console.error(error);
       toast({
         title: "❌ Erro ao publicar projeto.",
         description: "Tente novamente mais tarde.",
@@ -220,7 +221,7 @@ export function ProjectForm() {
               </FormControl>
               {field.value && (
                 <div className="mt-4">
-                  <img
+                  <Image
                     src={field.value}
                     width={200}
                     height={200}

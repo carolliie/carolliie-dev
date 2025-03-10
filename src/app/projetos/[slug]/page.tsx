@@ -8,10 +8,20 @@ import { ptBR } from "date-fns/locale";
 import { format } from "date-fns";
 import ProjectsSection from "@/app/pages/common/ProjectsSection";
 
+interface Project {
+    name: string;
+    img: string;
+    date: string;
+    content: string;
+    tags: string[];
+    tagColor: string;
+    tagTextColor: string;
+}
+
 export default function ProjectPage() {
     const params = useParams();
     const slug = params?.slug;
-    const [project, setProject] = useState<any>(null);
+    const [project, setProject] = useState<Project | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
@@ -21,6 +31,7 @@ export default function ProjectPage() {
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/projects/${slug}`);
                 setProject(response.data);
             } catch (err) {
+                console.error(err);
                 setError(true);
             } finally {
                 setLoading(false);
@@ -45,10 +56,13 @@ export default function ProjectPage() {
                     <div className="flex items-center gap-10 text-center mt-4">
                         <span className="text-base text-white">{format(new Date(project.date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
                         <div className="flex justify-center gap-2 mt-2">
-                            {project.tags.map((tag: string, index: number) => (
-                                <span key={index} className={`texttext-${project.tagTextColor} font-medium uppercase text-base px-3 py-2 rounded-lg`}
+                            {project.tags.map((tag, index) => (
+                                <span
+                                    key={index}
+                                    className="font-medium uppercase text-base px-3 py-2 rounded-lg"
                                     style={{
-                                        backgroundColor: `${project.tagColor}`,
+                                        backgroundColor: project.tagColor,
+                                        color: project.tagTextColor,
                                     }}
                                 >
                                     {tag}

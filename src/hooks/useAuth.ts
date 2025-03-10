@@ -3,9 +3,18 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
+interface User {
+    id: number;
+    username: string;
+    email: string;
+    role: string;
+    profilePicture: string;
+    slug: string;
+}
+
 export function useAuth() {
-    const [user, setUser] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
     const router = useRouter();
 
     useEffect(() => {

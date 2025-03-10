@@ -87,7 +87,7 @@ export function NavUser() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <Link href={`/dashboard/editar-perfil/${user.slug}`} className="cursor-pointer">
+              <Link href={`/dashboard/editar-perfil/${user?.slug}`} className="cursor-pointer">
                 <DropdownMenuItem>
                   <Sparkles />
                   Editar perfil
@@ -115,8 +115,5 @@ export function NavUser() {
       </SidebarMenuItem>
     </SidebarMenu>
   );
-}
-function logout() {
-  throw new Error("Function not implemented.");
 }
 

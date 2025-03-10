@@ -29,7 +29,6 @@ export default function Header() {
         }
 
         lastScrollY.current = scrollY;
-
     }, []);
 
     useEffect(() => {
@@ -37,12 +36,11 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [handleScroll]);
 
-
     return (
         <header className={`fixed inset-x-0 top-0 z-50 px-24 transition-opacity duration-200 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1">
-                    <a href="/" className="-m-1.5 p-1.5">
+                    <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">carolliie.dev</span>
                         <Image
                             alt="carolliie logo"
@@ -50,7 +48,7 @@ export default function Header() {
                             width={128}
                             height={128}
                         />
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex w-fit lg:hidden">
                     <button
@@ -73,16 +71,16 @@ export default function Header() {
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#contato" className="flex justify-between items-center text-sm/6 font-semibold text-black bg-[#FFA0D4] p-1 px-6 rounded-3xl hover:bg-[#c279a1]">
-                        Contato <ArrowRight color="black" size={18}/>
-                    </a>
+                    <Link href="#contato" className="flex justify-between items-center text-sm/6 font-semibold text-black bg-[#FFA0D4] p-1 px-6 rounded-3xl hover:bg-[#c279a1]">
+                        Contato <ArrowRight color="black" size={18} />
+                    </Link>
                 </div>
             </nav>
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 <div className="fixed inset-0 z-50" />
                 <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#1e1e1e] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white">
                     <div className="flex items-center justify-between">
-                        <a href="/" className="-m-1.5 p-1.5">
+                        <Link href="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">carolliie.dev</span>
                             <Image
                                 alt="carolliie logo"
@@ -90,7 +88,7 @@ export default function Header() {
                                 height={92}
                                 width={92}
                             />
-                        </a>
+                        </Link>
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
@@ -114,12 +112,12 @@ export default function Header() {
                                 ))}
                             </div>
                             <div className="py-6">
-                                <a
+                                <Link
                                     href="#contato"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:text-[#FFA0D4]"
                                 >
                                     Contato
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

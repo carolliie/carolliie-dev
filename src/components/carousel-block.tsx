@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Posts } from "./data-table";
 import axios from "axios";
-import { BookHeart, BookPlus, TimerIcon, ViewIcon } from "lucide-react";
+import { BookHeart, TimerIcon } from "lucide-react";
 
 export function CarouselBlock() {
   const plugin = React.useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
