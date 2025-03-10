@@ -18,7 +18,7 @@
 
 body {
   background-color: #1e1e1e;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .pencerio {
@@ -129,5 +129,11 @@ body {
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@media(max-width: 800px) {
+  * {
+    overflow-x: hidden;
   }
 }
