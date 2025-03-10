@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <div className="container mx-auto relative w-full h-[85vh]">
@@ -13,7 +15,7 @@ export default function Hero() {
           );
         })}
       </div>
-      
+
       <div className="relative isolate px-6 pt-14 lg:px-8 z-10">
         <div
           aria-hidden="true"
@@ -39,15 +41,15 @@ export default function Hero() {
               <strong>soluções inovadoras e funcionais</strong> para a web.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#projetos"
+              <Link
+                href="#sobre"
                 className="rounded-md bg-[#FFA0D4] px-6 py-2 text-sm font-medium text-white shadow-xs hover:bg-[#d685b2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Ver mais
-              </a>
-              <a href="#contato" className="text-sm font-medium text-[#F2FFAB]">
+              </Link>
+              <Link href="#contato" className="text-sm font-medium text-[#F2FFAB]">
                 Fale comigo <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

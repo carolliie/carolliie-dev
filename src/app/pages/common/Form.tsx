@@ -12,9 +12,11 @@ interface FormData {
 
 export default function Form() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [submittedMessage, setSubmittedMessage] = useState<string | null>(null);
 
     const onSubmitForm: SubmitHandler<FormData> = async (values) => {
+        setIsSubmitting(true);
         try {
             await axios.post(
                 `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/send-email`,
@@ -22,12 +24,13 @@ export default function Form() {
                 { headers: { "Content-Type": "application/json" } }
             );
 
-            setSubmittedMessage("✅ Email enviado com sucesso!");
+            setSubmittedMessage("Email enviado com sucesso!");
             reset();
         } catch (error) {
             console.error(error);
-            setSubmittedMessage("❌ Erro ao enviar email. Tente novamente.");
+            setSubmittedMessage("Erro ao enviar email. Tente novamente.");
         }
+        setIsSubmitting(false);
     };
 
     return (
@@ -64,11 +67,16 @@ export default function Form() {
             />
             {errors.message && <p className="text-white text-sm">{errors.message.message}</p>}
 
-            <button type="submit" className="text-black font-medium border-2 p-4 border-black rounded-2xl bg-[#F1FFA1]">
+            <button type="submit" className="flex items-center justify-center text-black font-medium border-2 p-4 border-black rounded-2xl bg-[#F1FFA1] hover:bg-[#d9e690] transition-all duration-300">
                 Enviar formulário
+                <div className={`loader mx-2 mt-2 transition-all duration-500 transform ${isSubmitting ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </button>
 
-            {submittedMessage && <p className="text-white">{submittedMessage}</p>}
-        </form>
+            {submittedMessage && <p className="text-[#1e1e1e]">{submittedMessage}</p>}
+        </form >
     );
 }

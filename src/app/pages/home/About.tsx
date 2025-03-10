@@ -14,18 +14,18 @@ export default function About() {
                             <p className="text-sm lg:text-base">Projetos desenvolvidos</p>
                         </div>
                         <div className="w-[155px] lg:w-48">
-                            <Image src="/formacao.svg" alt="html icone" width={64} height={64} />
+                            <Image src="/formacao.svg" alt="html icone" width={64} height={64} loading="lazy"/>
                             <p className="text-sm lg:text-base">Acadêmica de ciência da computação</p>
                         </div>
                     </div>
 
                     <div className="flex flex-row justify-center items-center">
                         <div className="w-[155px] lg:w-48">
-                            <Image src="/experiencia.svg" alt="html icone" width={64} height={64} />
+                            <Image src="/experiencia.svg" alt="html icone" width={64} height={64} loading="lazy"/>
                             <p className="text-sm lg:text-base">Experiência no mercado</p>
                         </div>
                         <div className="w-[155px] lg:w-48">
-                            <Image src="/resultados.svg" alt="html icone" width={64} height={64} />
+                            <Image src="/resultados.svg" alt="html icone" width={64} height={64} loading="lazy"/>
                             <p className="text-sm lg:text-base">Resultados rápidos e funcionais</p>
                         </div>
                     </div>
@@ -33,7 +33,13 @@ export default function About() {
             </div>
 
             <div className="mt-12 w-[90%] lg:w-fit">
-                <Image src="/carollie.webp" alt="html icone" width={458} height={507}/>
+                <Image
+                    src="/carollie.webp"
+                    alt="html icone"
+                    width={458}
+                    height={507}
+                    loading="lazy"
+                />
             </div>
         </div>
     )

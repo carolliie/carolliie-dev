@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Accordion from "./Accordion";
 
 export default function Faq() {
@@ -17,7 +18,7 @@ export default function Faq() {
                 <h1 className="text-5xl font-semibold">FAQ</h1>
                 <p className="text-lg font-normal">Dúvidas frequentes recebidas no <span className="text-[#FFA0D4] font-general">Instagram</span> e <span className="text-[#F2FFAB] font-general">LinkedIn</span>.</p>
 
-                <a href="https://www.linkedin.com/in/ana-caroline-vieira-526374274/" className="bg-[#F2FFAB] text-black text-nowrap font-medium flex flex-row justify-between items-center gap-x-6 py-3 px-4 w-fit lg:w-1/2 rounded-lg">
+                <Link href="https://www.linkedin.com/in/ana-caroline-vieira-526374274/" className="bg-[#F2FFAB] hover:bg-[#ccd690] text-black text-nowrap font-medium flex flex-row justify-between items-center gap-x-6 py-3 px-4 w-fit lg:w-1/2 rounded-lg">
                     Ver linkedin
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_503_5)">
@@ -29,7 +30,7 @@ export default function Faq() {
                             </clipPath>
                         </defs>
                     </svg>
-                </a>
+                </Link>
             </div>
 
             <div className="flex flex-col justify-center items-start gap-y-6 w-fit lg:w-[450px]">

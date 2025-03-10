@@ -62,12 +62,12 @@ export default function AllPostsSection() {
     const postsToShow = searchQuery ? filteredPosts : posts;
 
     return (
-        <div className="flex flex-col justify-center items-center px-12 py-2">
-            <div className="grid grid-cols-2 gap-96 justify-between items-center">
+        <div className="px-6 pb-24 lg:px-3 lg:pb-32 mx-auto flex flex-col py-32 w-full">
+            <div className="flex flex-row justify-between items-center px-12 lg:px-20">
                 <div className="w-full">
-                    <h1 className="text-center text-4xl font-semibold">
+                    <h1 className="text-start text-[25px] lg:text-4xl font-semibold">
                         Veja mais{" "}
-                        <span className="pencerio text-[#FFD7ED] font-normal">
+                        <span className="pencerio text-[#FFD7ED] text-[20px] lg:text-4xl font-normal">
                             insights
                         </span>
                     </h1>
@@ -79,42 +79,44 @@ export default function AllPostsSection() {
                         placeholder="Pesquisar por nome ou tag..."
                         value={searchQuery}
                         onChange={handleSearch}
-                        className="w-full text-black max-w-md px-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full text-black max-w-md px-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-[#FFD7ED] text-sm lg:text-lg"
                     />
                     <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" color="gray" />
                 </div>
             </div>
 
+            <div className="container flex flex-col justify-center items-center px-20 py-2">
+                {postsToShow.length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 xl:gap-48 py-12 justify-between">
+                        {postsToShow.slice(0, visibleCount).map((post) => (
+                            <Card
+                                key={post.id}
+                                img={post.img}
+                                name={post.name}
+                                content={post.content}
+                                tags={post.tags || []}
+                                slug={post.slug}
+                                tagColor={post.tagColor}
+                                tagTextColor={post.tagTextColor}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <span className="text-lg font-semibold text-center mt-4">
+                        Nenhum post disponível
+                    </span>
+                )}
 
-            {postsToShow.length > 0 ? (
-                <div className="grid grid-cols-4 sm:grid-cols-1 lg:grid-cols-4 gap-6 py-12 justify-evenly">
-                    {postsToShow.slice(0, visibleCount).map((post) => (
-                        <Card
-                            key={post.id}
-                            img={post.img}
-                            name={post.name}
-                            content={post.content}
-                            tags={post.tags || []}
-                            slug={post.slug}
-                            tagColor={post.tagColor}
-                            tagTextColor={post.tagTextColor}
-                        />
-                    ))}
-                </div>
-            ) : (
-                <span className="text-lg font-semibold text-center mt-4">
-                    Nenhum post disponível
-                </span>
-            )}
+                {visibleCount < postsToShow.length && (
+                    <button
+                        className="mt-6 px-6 py-2 bg-[#FFA0D4] text-white rounded-lg hover:bg-[#a35480] transition duration-300"
+                        onClick={() => setVisibleCount(visibleCount + 2)}
+                    >
+                        Ver mais
+                    </button>
+                )}
+            </div>
 
-            {visibleCount < postsToShow.length && (
-                <button
-                    className="mt-6 px-6 py-2 bg-[#FFA0D4] text-white rounded-lg hover:bg-[#a35480] transition duration-300"
-                    onClick={() => setVisibleCount(visibleCount + 2)}
-                >
-                    Ver mais
-                </button>
-            )}
         </div>
     );
 }

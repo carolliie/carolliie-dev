@@ -63,13 +63,13 @@ export default function AllProjectsSection() {
     const projectsToShow = searchQuery ? filteredProjects : projects;
 
     return (
-        <div className="flex flex-col justify-center items-center px-12 py-2">
-            <div className="grid grid-cols-2 gap-96 justify-between items-center">
+        <div className="px-0 pb-24 lg:px-3 lg:pb-32 mx-auto flex flex-col py-32 w-full">
+            <div className="flex flex-row justify-between items-center px-12 lg:px-20">
                 <div className="w-full">
-                    <h1 className="text-center text-4xl font-semibold">
+                    <h1 className="text-start text-[25px] lg:text-4xl font-semibold">
                         Veja mais{" "}
-                        <span className="pencerio text-[#FFD7ED] font-normal">
-                            insights
+                        <span className="pencerio text-[#FFD7ED] text-[20px] lg:text-4xl font-normal">
+                            projetos
                         </span>
                     </h1>
                 </div>
@@ -80,43 +80,44 @@ export default function AllProjectsSection() {
                         placeholder="Pesquisar por nome ou tag..."
                         value={searchQuery}
                         onChange={handleSearch}
-                        className="w-full text-black max-w-md px-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full text-black max-w-md px-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-[#FFD7ED] text-sm lg:text-lg"
                     />
                     <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" color="gray" />
                 </div>
             </div>
 
+            <div className="container flex flex-col justify-center items-center px-12 py-2">
+                {projectsToShow.length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 xl:gap-48 py-12 justify-between">
+                        {projectsToShow.slice(0, visibleCount).map((project) => (
+                            <ProjectCard
+                                key={project.id}
+                                img={project.img}
+                                name={project.name}
+                                content={project.content}
+                                tags={project.tags || []}
+                                slug={project.slug}
+                                projectColor={project.projectColor}
+                                tagColor={project.tagColor}
+                                tagTextColor={project.tagTextColor}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <span className="text-lg font-semibold text-center mt-4">
+                        Nenhum projeto disponível
+                    </span>
+                )}
 
-            {projectsToShow.length > 0 ? (
-                <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-6 py-12 justify-evenly">
-                    {projectsToShow.slice(0, visibleCount).map((project) => (
-                        <ProjectCard
-                            key={project.id}
-                            img={project.img}
-                            name={project.name}
-                            content={project.content}
-                            tags={project.tags || []}
-                            slug={project.slug}
-                            projectColor={project.projectColor}
-                            tagColor={project.tagColor}
-                            tagTextColor={project.tagTextColor}
-                        />
-                    ))}
-                </div>
-            ) : (
-                <span className="text-lg font-semibold text-center mt-4">
-                    Nenhum projeto disponível
-                </span>
-            )}
-
-            {visibleCount < projectsToShow.length && (
-                <button
-                    className="mt-6 px-6 py-2 bg-[#FFA0D4] text-white rounded-lg hover:bg-[#a35480] transition duration-300"
-                    onClick={() => setVisibleCount(visibleCount + 2)}
-                >
-                    Ver mais
-                </button>
-            )}
+                {visibleCount < projectsToShow.length && (
+                    <button
+                        className="mt-6 px-6 py-2 bg-[#FFA0D4] text-white rounded-lg hover:bg-[#a35480] transition duration-300"
+                        onClick={() => setVisibleCount(visibleCount + 2)}
+                    >
+                        Ver mais
+                    </button>
+                )}
+            </div>
         </div>
     );
 }

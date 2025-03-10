@@ -8,10 +8,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const navigation = [
-    { name: 'Sobre', href: '#sobre' },
+    { name: 'Sobre', href: '/#sobre' },
     { name: 'Projetos', href: '/projetos' },
     { name: 'Blog', href: '/blog' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'FAQ', href: '/#faq' },
 ]
 
 export default function Header() {
@@ -47,6 +47,7 @@ export default function Header() {
                             src="/carolliie-dev.svg"
                             width={128}
                             height={128}
+                            loading="lazy"
                         />
                     </Link>
                 </div>
@@ -87,6 +88,7 @@ export default function Header() {
                                 src="/carolliie-dev.svg"
                                 height={92}
                                 width={92}
+                                loading="lazy"
                             />
                         </Link>
                         <button
@@ -113,7 +115,7 @@ export default function Header() {
                             </div>
                             <div className="py-6">
                                 <Link
-                                    href="#contato"
+                                    href="/#contato"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:text-[#FFA0D4]"
                                 >
                                     Contato
