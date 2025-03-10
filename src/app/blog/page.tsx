@@ -1,4 +1,3 @@
-import Link from "next/link";
 import AllPostsSection from "../pages/common/AllPosts";
 import PostsSection from "../pages/common/PostsSection";
 
