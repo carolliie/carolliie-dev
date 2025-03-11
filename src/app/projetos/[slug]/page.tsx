@@ -47,19 +47,19 @@ export default function ProjectPage() {
     return (
         <div>
             <div
-                className="bg-center bg-cover h-[80vh] flex items-start justify-end text-white text-center p-[60px] flex-col rounded-br-[60px] rounded-bl-[60px] before:absolute before:top-0 before:left-0 before:w-full before:h-[80vh] before:rounded-br-[60px] before:rounded-bl-[60px] before:bg-gradient-to-t before:from-black/60 before:via-black/30 before:to-transparent"
+                className="bg-center bg-cover h-[80vh] flex items-start justify-end text-white text-center p-10 lg:p-[60px] flex-col rounded-br-[60px] rounded-bl-[60px] before:absolute before:top-0 before:left-0 before:w-full before:h-[80vh] before:rounded-br-[60px] before:rounded-bl-[60px] before:bg-gradient-to-t before:from-black/60 before:via-black/30 before:to-transparent"
                 style={{ backgroundImage: `url(${project.img})` }}
             >
                 <div className="z-20">
-                    <h1 className="text-start text-4xl font-semibold">{project.name}</h1>
+                    <h1 className="text-start text-2xl lg:text-4xl font-semibold">{project.name}</h1>
 
                     <div className="flex items-center gap-10 text-center mt-4">
-                        <span className="text-base text-white">{format(new Date(project.date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
+                        <span className="text-start text-sm lg:text-base text-white">{format(new Date(project.date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
                         <div className="flex justify-center gap-2 mt-2">
                             {project.tags.map((tag, index) => (
                                 <span
                                     key={index}
-                                    className="font-medium uppercase text-base px-3 py-2 rounded-lg"
+                                    className="font-medium uppercase text-nowrap text-sm lg:text-base px-3 py-2 rounded-lg"
                                     style={{
                                         backgroundColor: project.tagColor,
                                         color: project.tagTextColor,
@@ -73,7 +73,7 @@ export default function ProjectPage() {
                 </div>
             </div>
 
-            <div className="mx-auto h-fit p-[60px] text-lg text-white leading-relaxed text-start bg-[url('/background-blog.svg')] bg-center bg-cover bg-no-repeat">
+            <div className="mx-auto h-fit p-10 lg:p-[60px] text-lg text-white leading-relaxed text-start bg-[url('/background-blog.svg')] bg-center bg-cover bg-no-repeat">
                 <p dangerouslySetInnerHTML={{ __html: project.content }}></p>
             </div>
 

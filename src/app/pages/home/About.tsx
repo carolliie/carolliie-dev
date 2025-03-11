@@ -35,7 +35,7 @@ export default function About() {
             <div className="mt-12 w-[90%] lg:w-fit">
                 <Image
                     src="/carollie.webp"
-                    alt="html icone"
+                    alt="Ana Caroline"
                     width={458}
                     height={507}
                     loading="lazy"

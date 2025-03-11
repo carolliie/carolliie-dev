@@ -37,10 +37,10 @@ export default function Header() {
     }, [handleScroll]);
 
     return (
-        <header className={`fixed inset-x-0 top-0 z-50 px-24 transition-opacity duration-200 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <header className={`fixed inset-x-0 top-0 z-50 px-2 lg:px-24 xl:px-[225px] transition-opacity duration-200 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1">
-                    <Link href="/" className="-m-1.5 p-1.5">
+                    <Link href="/" className="p-1.5 w-[300px]">
                         <span className="sr-only">carolliie.dev</span>
                         <Image
                             alt="carolliie logo"
@@ -51,7 +51,7 @@ export default function Header() {
                         />
                     </Link>
                 </div>
-                <div className="flex w-fit lg:hidden">
+                <div className="flex w-[40px] lg:hidden">
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)}

@@ -62,7 +62,7 @@ export default function AllPostsSection() {
     const postsToShow = searchQuery ? filteredPosts : posts;
 
     return (
-        <div className="px-6 pb-24 lg:px-3 lg:pb-32 mx-auto flex flex-col py-32 w-full">
+        <div className="px-0 pb-24 lg:px-3 lg:pb-32 mx-auto flex flex-col py-32 w-full">
             <div className="flex flex-row justify-between items-center px-12 lg:px-20">
                 <div className="w-full">
                     <h1 className="text-start text-[25px] lg:text-4xl font-semibold">
@@ -85,9 +85,9 @@ export default function AllPostsSection() {
                 </div>
             </div>
 
-            <div className="container flex flex-col justify-center items-center px-20 py-2">
+            <div className="flex flex-col justify-center items-center px-10 lg:px-20 py-2">
                 {postsToShow.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 xl:gap-48 py-12 justify-between">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 py-12 justify-between">
                         {postsToShow.slice(0, visibleCount).map((post) => (
                             <Card
                                 key={post.id}
