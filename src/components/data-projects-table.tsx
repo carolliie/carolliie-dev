@@ -164,7 +164,7 @@ export const columns: ColumnDef<Projects>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Ações</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(`/projects/${project.slug}`)}
+              onClick={() => navigator.clipboard.writeText(`https://carolliie.dev/projects/${project.slug}`)}
             >
               Copiar URL do projeto
             </DropdownMenuItem>

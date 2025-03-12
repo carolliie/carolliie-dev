@@ -127,7 +127,7 @@ export const columns: ColumnDef<Posts>[] = [
         const token = localStorage.getItem("authToken");
         try {
           await axios.delete(
-            `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/projects/delete/${post.id}`,
+            `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/delete/${post.id}`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -163,7 +163,7 @@ export const columns: ColumnDef<Posts>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Ações</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(`/blog/${post?.slug}`)}
+              onClick={() => navigator.clipboard.writeText(`https://carolliie.dev/blog/${post?.slug}`)}
             >
               Copiar URL do Post
             </DropdownMenuItem>
