@@ -71,9 +71,9 @@ export function PieChartList() {
         >
           <PieChart>
             <ChartTooltip
-              content={<ChartTooltipContent nameKey="visitors" hideLabel />}
+              content={<ChartTooltipContent nameKey="platform" hideLabel />}
             />
-            <Pie data={chartData} dataKey="visitors">
+            <Pie data={chartData} dataKey="visitors" nameKey="platform">
               <LabelList
                 dataKey="platform"
                 className="fill-background"
@@ -89,10 +89,10 @@ export function PieChartList() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+        Total de visitantes por dispositivo <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          Mobile ou Desktop
         </div>
       </CardFooter>
     </Card>

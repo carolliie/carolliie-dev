@@ -12,7 +12,6 @@ import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/s
 import { Separator } from "@radix-ui/react-separator";
 import { Toaster } from "@/components/ui/toaster";
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,6 +29,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <title>Carollie - Dashboard</title>
       <body>
         <ThemeProvider
           attribute="class"
