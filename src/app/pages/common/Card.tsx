@@ -28,10 +28,10 @@ const Card: React.FC<PostProps> = ({ img, name, content, slug, tagColor, tagText
                 </div>
                 <div className="py-4">
                     <h2 className="text-lg font-medium">{name}</h2>
-                    <p className="text-base font-light"
+                    <p className="text-base font-light text-wrap"
                         dangerouslySetInnerHTML={{
-                            __html: content.length > 20
-                                ? content.substring(0, 20) + "..."
+                            __html: content.length > 30
+                                ? content.substring(0, 30) + "..."
                                 : content
                         }}
                     ></p>

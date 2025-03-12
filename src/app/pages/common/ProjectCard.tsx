@@ -35,10 +35,10 @@ const ProjectCard: React.FC<ProjectProps> = ({ img, name, content, slug, project
                 </div>
                 <div className="py-4">
                     <h2 className="text-lg font-medium">{name}</h2>
-                    <p className="text-base font-light"
+                    <p className="text-base font-light text-wrap"
                         dangerouslySetInnerHTML={{
-                            __html: content.length > 24
-                                ? content.substring(0, 24) + "..."
+                            __html: content.length > 30
+                                ? content.substring(0, 30) + "..."
                                 : content
                         }}
                     ></p>
