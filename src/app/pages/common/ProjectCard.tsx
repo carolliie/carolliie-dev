@@ -16,22 +16,25 @@ type ProjectProps = {
 
 const ProjectCard: React.FC<ProjectProps> = ({ img, name, content, slug, projectColor, tagColor, tagTextColor, tags = [] }) => {
     return (
-        <div className="flex flex-col justify-center gap-y-5 p-4 rounded-2xl w-fit h-fit text-white"
+        <div className="flex flex-col justify-center gap-y-5 p-4 rounded-2xl w-fit h-fit text-white hover:scale-[1.005] transition-all duration-300 ease-in-out"
             style={{
                 background: `linear-gradient(to bottom, #FFFFFF 20%, ${projectColor} 90%)`,
             }}
         >
             <div>
                 <div className="relative w-[270px] h-[270px] lg:w-[470px] lg:h-[470px] xl:w-[550px] xl:h-[550px] !rounded-lg">
-                    <Image
-                        src={img}
-                        alt="Imagem do post"
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center"
-                        className="rounded-lg"
-                        loading="lazy"
-                    />
+                    <Link href={`/projetos/${slug}`}>
+                        <Image
+                            src={img}
+                            alt="Imagem do post"
+                            layout="fill"
+                            objectFit="cover"
+                            objectPosition="center"
+                            className="rounded-lg"
+                            loading="lazy"
+                        />
+                    </Link>
+
                 </div>
                 <div className="py-4">
                     <h2 className="text-lg font-medium">{name}</h2>

@@ -16,11 +16,11 @@ export default function Footer() {
 
 
             <div className="flex flex-wrap justify-evenly text-white font-normal gap-8 lg:gap-x-40">
-                <Link href="/" className="hover:text-[#FFA0D4]">Início</Link>
-                <Link href="/#sobre" className="hover:text-[#FFA0D4]" target="_blank">Sobre</Link>
-                <Link href="/blog" className="hover:text-[#FFA0D4]">Blog</Link>
-                <Link href="/projetos" className="hover:text-[#FFA0D4]">Projetos</Link>
-                <Link href="/#faq" className="hover:text-[#FFA0D4]">FAQ</Link>
+                <Link href="/" className="hover:text-[#fac6e2] hover:glow">Início</Link>
+                <Link href="/#sobre" className="hover:text-[#fac6e2] hover:glow" target="_blank">Sobre</Link>
+                <Link href="/blog" className="hover:text-[#fac6e2] hover:glow">Blog</Link>
+                <Link href="/projetos" className="hover:text-[#fac6e2] hover:glow">Projetos</Link>
+                <Link href="/#faq" className="hover:text-[#fac6e2] hover:glow">FAQ</Link>
             </div>
 
             <div className="flex justify-evenly gap-x-20 gap-y-20" id="redes-sociais">

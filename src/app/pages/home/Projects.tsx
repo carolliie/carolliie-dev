@@ -15,7 +15,7 @@ export default function Projects() {
                 </div>
 
                 <Link href="/projetos" passHref legacyBehavior>
-                    <a className="flex flex-row justify-between items-center gap-x-1 lg:gap-x-4 bg-white text-black text-nowrap text-sm lg:text-base font-medium py-1.5 px-3 rounded-full w-28 lg:w-36">
+                    <a className="flex flex-row justify-between items-center gap-x-1 lg:gap-x-4 bg-white hover:bg-[#FFA0D4] text-black text-nowrap text-sm lg:text-base font-medium py-1.5 px-3 rounded-full w-28 lg:w-36">
                         Ver mais
                         <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M32.985 19.743C32.985 27.8509 26.7203 34.4236 18.9923 34.4236C11.2644 34.4236 4.99963 27.8509 4.99963 19.743C4.99963 11.6351 11.2644 5.06238 18.9923 5.06238C26.7203 5.06238 33.3532 11.63 32.985 19.743Z" fill="#1E1E1E" />

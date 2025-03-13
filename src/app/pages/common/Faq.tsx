@@ -14,11 +14,11 @@ export default function Faq() {
 
     return (
         <div className="flex container mx-auto flex-col lg:flex-row justify-between relative px-12 pb-28 lg:px-24 lg:pb-32" id="faq">
-            <div className="flex flex-col gap-y-4 mb-10 lg:mb-0 lg:sticky top-0 w-fit lg:w-[450px]">
+            <div className="flex flex-col gap-y-4 mb-10 lg:mb-0 lg:sticky top-0 w-fit lg:w-[450px]" id="faq-sticky">
                 <h1 className="text-5xl font-semibold">FAQ</h1>
                 <p className="text-lg font-normal">Dúvidas frequentes recebidas no <span className="text-[#FFA0D4] font-general">Instagram</span> e <span className="text-[#F2FFAB] font-general">LinkedIn</span>.</p>
 
-                <Link href="https://www.linkedin.com/in/ana-caroline-vieira-526374274/" className="bg-[#F2FFAB] hover:bg-[#ccd690] text-black text-nowrap font-medium flex flex-row justify-between items-center gap-x-6 py-3 px-4 w-fit lg:w-1/2 rounded-lg">
+                <Link href="https://www.linkedin.com/in/ana-caroline-vieira-526374274/" className="bg-[#F2FFAB] hover:bg-[#ccd690] text-black text-nowrap font-medium flex flex-row justify-between items-center gap-x-6 py-3 px-4 w-fit lg:w-1/2 rounded-lg hover:scale-[1.03]">
                     Ver linkedin
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_503_5)">

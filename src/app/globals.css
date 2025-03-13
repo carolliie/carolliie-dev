@@ -27,12 +27,16 @@ body {
 }
 
 #redes-sociais svg {
+  transition: 0.4s ease-in-out;
   path {
-    transition: 0.3s ease-in-out;
+    transition: 0.4s ease-in-out;
   }
 }
 
 #redes-sociais svg:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0 0 5px #ff95cf36) drop-shadow(0 0 5px #ff95cf36) drop-shadow(0 0 5px #ff95cf36);
+
   path {
     fill: #FFA0D4;
   }
@@ -76,6 +80,92 @@ body {
 
 .loader span:nth-child(3) {
   animation-delay: 0.4s;
+}
+
+#hero {
+  opacity: 0;
+  animation: fade-up 1s ease-in-out forwards;
+}
+
+#sobre {
+  opacity: 0;
+  animation: fade-left 1s ease-in-out forwards;
+}
+
+#sobre-img {
+  opacity: 0;
+  animation: fade-right 1s ease-in-out forwards;
+}
+
+#projetos,
+#posts {
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+#faq-sticky {
+  height: fit-content;
+  position: sticky;
+  top: 0;
+}
+
+#contato-texto {
+  animation: fade-left 0.5s ease-in-out forwards;
+}
+
+#form {
+  animation: fade-in 0.4s ease-in-out forwards;
+}
+
+.hover\:glow:hover {
+  text-shadow: 0 0 6px #FFA0D4, 0 0 10px #FFA0D4, 0 0 20px #FFA0D4;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    transform: translateY(5px);
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-left {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
 }
 
 @keyframes bounce {
@@ -170,5 +260,9 @@ body {
 @media(max-width: 800px) {
   html {
     overflow-x: hidden;
+  }
+
+  #faq-sticky {
+    position: relative;
   }
 }

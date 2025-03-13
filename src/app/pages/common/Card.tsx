@@ -14,17 +14,20 @@ type PostProps = {
 
 const Card: React.FC<PostProps> = ({ img, name, content, slug, tagColor, tagTextColor, tags = [] }) => {
     return (
-        <div className="flex flex-col flex-wrap justify-between gap-y-5 rounded-lg w-[300px] text-white">
+        <div className="flex flex-col flex-wrap justify-between gap-y-5 rounded-lg w-[300px] p-2 text-white bg-white bg-opacity-0 hover:bg-opacity-5 hover:scale-[1.02] transition-all duration-300 ease-in-out">
             <div>
                 <div className="relative h-[300px] overflow-hidden rounded-lg">
-                    <Image
-                        src={img}
-                        alt="Imagem do post"
-                        width={288}
-                        height={288}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                    />
+                    <Link href={`blog/${slug}`}>
+                        <Image
+                            src={img}
+                            alt="Imagem do post"
+                            width={288}
+                            height={288}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    </Link>
+
                 </div>
                 <div className="py-4">
                     <h2 className="text-lg font-medium">{name}</h2>

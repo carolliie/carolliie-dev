@@ -73,7 +73,7 @@ export default function Header() {
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <Link href="#contato" className="flex justify-between items-center text-sm/6 font-semibold text-black bg-[#FFA0D4] p-1 px-6 rounded-3xl hover:bg-[#c279a1]">
-                        Contato <ArrowRight color="black" size={18} />
+                        Contato →
                     </Link>
                 </div>
             </nav>

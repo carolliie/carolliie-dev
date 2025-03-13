@@ -37,6 +37,7 @@ export default function Form() {
         <form
             onSubmit={handleSubmit(onSubmitForm)}
             className="flex flex-col w-full lg:w-1/3 gap-y-4"
+            id="form"
         >
             <input
                 {...register("name", { required: "Nome é obrigatório" })}

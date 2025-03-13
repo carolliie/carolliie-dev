@@ -30,7 +30,7 @@ export default function Hero() {
           />
         </div>
 
-        <div className="mx-auto max-w-2xl py-40 xl:py-52! lg:py-56">
+        <div className="mx-auto max-w-2xl py-40 xl:py-52! lg:py-56" id="hero">
           <div className="text-center">
             <h1 className="text-[40px] lg:text-5xl font-semibold tracking-tight text-white sm:text-7xl">
               Olá, eu sou<br />
@@ -43,11 +43,11 @@ export default function Hero() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="#sobre"
-                className="rounded-md bg-[#FFA0D4] px-6 py-2 text-sm font-medium text-white shadow-xs hover:bg-[#d685b2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-[#FFA0D4] px-6 py-2 text-sm font-medium text-white shadow-xs hover:bg-[#d685b2] hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Ver mais
               </Link>
-              <Link href="#contato" className="text-sm font-medium text-[#F2FFAB]">
+              <Link href="#contato" className="text-sm font-medium text-[#F2FFAB] hover:translate-x-2">
                 Fale comigo <span aria-hidden="true">→</span>
               </Link>
             </div>
