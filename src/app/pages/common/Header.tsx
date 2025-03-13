@@ -5,7 +5,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 const navigation = [
     { name: 'Sobre', href: '/#sobre' },
