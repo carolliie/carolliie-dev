@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export function useIntersectionObserver(ref: React.RefObject<HTMLElement>, rootMargin = "0px") {
+export function useIntersectionObserver(ref: React.RefObject<HTMLElement | null>, rootMargin = "0px") {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

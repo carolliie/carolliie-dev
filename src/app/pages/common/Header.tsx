@@ -65,13 +65,13 @@ export default function Header() {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="text-sm/6 font-semibold text-white hover:text-[#FFA0D4]">
+                            className="text-sm/6 font-normal text-white hover:text-[#fac6e2] hover:glow">
                             {item.name}
                         </Link>
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link href="#contato" className="flex justify-between items-center text-sm/6 font-semibold text-black bg-[#FFA0D4] p-1 px-6 rounded-3xl hover:bg-[#c279a1]">
+                    <Link href="#contato" className="flex justify-between items-center text-sm/6 font-medium text-black bg-[#FFA0D4] p-1 px-6 rounded-3xl hover:bg-[#462c3a] hover:text-[#fff3f9]">
                         Contato →
                     </Link>
                 </div>

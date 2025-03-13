@@ -2,7 +2,8 @@
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useIntersectionObserver } from "./useObserver";
 
 interface FormData {
     name: string;
@@ -14,6 +15,9 @@ export default function Form() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submittedMessage, setSubmittedMessage] = useState<string | null>(null);
+
+    const ref = useRef<HTMLFormElement>(null);
+    const isVisible = useIntersectionObserver(ref);
 
     const onSubmitForm: SubmitHandler<FormData> = async (values) => {
         setIsSubmitting(true);
@@ -36,8 +40,8 @@ export default function Form() {
     return (
         <form
             onSubmit={handleSubmit(onSubmitForm)}
-            className="flex flex-col w-full lg:w-1/3 gap-y-4"
-            id="form"
+            className={`flex flex-col w-full lg:w-1/3 gap-y-4 ${isVisible ? "fade-in-effect" : ""}`}
+            ref={ref}
         >
             <input
                 {...register("name", { required: "Nome é obrigatório" })}
