@@ -17,7 +17,7 @@ const Card: React.FC<PostProps> = ({ img, name, content, slug, tagColor, tagText
         <div className="flex flex-col flex-wrap justify-between gap-y-5 rounded-lg w-[300px] p-2 text-white bg-white bg-opacity-0 hover:bg-opacity-5 hover:scale-[1.02] transition-all duration-300 ease-in-out">
             <div>
                 <div className="relative h-[300px] overflow-hidden rounded-lg">
-                    <Link href={`blog/${slug}`}>
+                    <Link href={`/blog/${slug}`}>
                         <Image
                             src={img}
                             alt="Imagem do post"
@@ -54,7 +54,7 @@ const Card: React.FC<PostProps> = ({ img, name, content, slug, tagColor, tagText
                 </div>
             </div>
 
-            <Link className="flex justify-end" href={`blog/${slug}`}>
+            <Link className="flex justify-end" href={`/blog/${slug}`}>
                 <Image
                     src="/arrow-button.svg"
                     alt="Post button"
