@@ -16,7 +16,7 @@ export default function Hero() {
         })}
       </div>
 
-      <div className="relative isolate px-6 pt-14 lg:px-8 z-10">
+      <div className="relative isolate px-6 lg:pt-14 lg:px-8 z-10">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl"
@@ -30,7 +30,7 @@ export default function Hero() {
           />
         </div>
 
-        <div className="mx-auto max-w-2xl py-40 xl:py-52! lg:py-56" id="hero">
+        <div className="mx-auto max-w-2xl py-40 xl:pb-52! lg:pb-56" id="hero">
           <div className="text-center">
             <h1 className="text-[40px] lg:text-5xl font-semibold tracking-tight text-white sm:text-7xl">
               Olá, eu sou<br />

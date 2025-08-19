@@ -20,7 +20,7 @@ export default function Faq() {
     ]
 
     return (
-        <div className="flex container mx-auto flex-col lg:flex-row justify-between relative px-12 pb-28 lg:px-24 lg:pb-32" id="faq">
+        <div className="flex mx-auto flex-col lg:flex-row justify-between relative px-12 pb-28 lg:px-24 lg:pb-32" id="faq">
             <div className={`flex flex-col gap-y-4 mb-10 lg:mb-0 lg:sticky top-0 w-fit lg:w-[450px] ${isVisible ? "fade-in-effect" : ""}`} id="faq-sticky" ref={ref}>
                 <h1 className="text-5xl font-semibold">FAQ</h1>
                 <p className="text-lg font-normal">Dúvidas frequentes recebidas no <span className="text-[#FFA0D4] font-general">Instagram</span> e <span className="text-[#F2FFAB] font-general">LinkedIn</span>.</p>

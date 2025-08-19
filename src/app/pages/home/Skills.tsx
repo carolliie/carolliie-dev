@@ -10,7 +10,7 @@ export default function Skills() {
     const isVisible = useIntersectionObserver(ref);
 
     return (
-        <div className={`flex container mx-auto flex-row flex-wrap justify-between gap-4 lg:gap-0 items-center px-12 lg:px-24 ${isVisible ? "fade-in-effect" : ""}`} ref={ref}>
+        <div className={`flex mx-auto flex-row flex-wrap justify-between gap-4 lg:gap-0 items-center px-12 lg:px-24 ${isVisible ? "fade-in-effect" : ""}`} ref={ref}>
             <Image src="/html.svg" alt="html icone" width={56} height={56} loading="lazy" className="hover:scale-105 transition-all duration-300 ease-in-out" />
             <Image src="/css.svg" alt="css icone" width={56} height={56} loading="lazy" className="hover:scale-105 transition-all duration-300 ease-in-out" />
             <Image src="/js.svg" alt="js icone" width={56} height={56} loading="lazy" className="hover:scale-105 transition-all duration-300 ease-in-out" />

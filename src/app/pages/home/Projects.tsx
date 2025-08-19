@@ -10,8 +10,8 @@ export default function Projects() {
     const isVisible = useIntersectionObserver(ref);
     
     return (
-        <div className={`px-0 pb-24 lg:px-3 lg:pb-32 container mx-auto flex flex-col ${isVisible ? "fade-in-effect" : ""}`} id="projetos" ref={ref}>
-            <div className="flex flex-row justify-between items-center px-12 lg:px-20">
+        <div className={`px-12 pb-24 lg:px-24 lg:pb-32 mx-auto flex flex-col ${isVisible ? "fade-in-effect" : ""}`} id="projetos" ref={ref}>
+            <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-col">
                     <p className="text-sm lg:text-base">
                         <span aria-hidden="true" className="text-[#FFA0D4] mx-2">→</span>Meu portfólio
@@ -32,7 +32,9 @@ export default function Projects() {
                 </Link>
             </div>
 
-            <ProjectsSection />
+            <div className="flex justify-center">
+                <ProjectsSection />
+            </div>
         </div>
     );
 }

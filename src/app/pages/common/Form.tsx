@@ -40,7 +40,7 @@ export default function Form() {
     return (
         <form
             onSubmit={handleSubmit(onSubmitForm)}
-            className={`flex flex-col w-full lg:w-1/3 gap-y-4 ${isVisible ? "fade-in-effect" : ""}`}
+            className={`flex flex-col w-full lg:w-2/5 gap-y-4 ${isVisible ? "fade-in-effect" : ""}`}
             ref={ref}
         >
             <input
@@ -74,7 +74,7 @@ export default function Form() {
 
             <button type="submit" className="flex items-center justify-center text-black font-medium border-2 p-4 border-black rounded-2xl bg-[#F1FFA1] hover:bg-[#d9e690] transition-all duration-300">
                 Enviar formulário
-                <div className={`loader mx-2 mt-2 transition-all duration-500 transform ${isSubmitting ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}>
+                <div className={`loader mx-0 mt-0 transition-all duration-500 transform hidden ${isSubmitting ? "block mx-2 mt-2 opacity-100 scale-100" : "opacity-0 scale-0"}`}>
                     <span></span>
                     <span></span>
                     <span></span>
