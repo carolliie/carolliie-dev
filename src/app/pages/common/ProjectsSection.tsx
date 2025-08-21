@@ -42,7 +42,7 @@ export default function ProjectsSection({ excludeSlug }: { excludeSlug?: string 
     }, [excludeSlug]);
 
     return (
-        <div className="container flex flex-col justify-center items-center px-12 py-2">
+        <div className="flex flex-col justify-center items-center px-12 lg:px-24 py-2">
             {projects.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 xl:gap-48 py-12 justify-between">
                     {projects.map((project) => (
