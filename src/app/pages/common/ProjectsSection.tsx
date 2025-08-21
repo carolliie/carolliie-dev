@@ -51,7 +51,7 @@ export default function ProjectsSection({
       {projects.length > 0 ? (
         <div
           className="grid grid-cols-1 lg:grid-cols-2
-            gap-6 lg:gap-8
+            gap-6 lg:gap-20
             py-8"
         >
           {projects.map((project) => (
