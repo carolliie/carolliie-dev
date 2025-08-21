@@ -44,7 +44,7 @@ export default function ProjectsSection({ excludeSlug }: { excludeSlug?: string 
     return (
         <div className="flex flex-col justify-center items-center px-12 lg:px-24 py-2">
             {projects.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 xl:gap-48 py-12 justify-between">
+                <div className="flex flex-col lg:flex-row py-12 justify-between items-center">
                     {projects.map((project) => (
                         <ProjectCard
                             key={project.id}
